@@ -63,4 +63,6 @@ openApiGenerate {
 
 
 compileJava.dependsOn tasks.openApiGenerate
+sourceSets.main.java.srcDir "${projectDir}/build/generated/src/main/java"
+sourceSets.main.resources.srcDir "${projectDir}/build/generated/src/main/resources"
 processResources.dependsOn tasks.openApiGenerate
