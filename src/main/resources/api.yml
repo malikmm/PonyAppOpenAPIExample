@@ -51,6 +51,19 @@ paths:
           description: "Forbidden"
         "404":
           description: "Not Found"
+  /pony/hello:
+    get:
+      summary: Gets Hello World
+      operationId: hello
+      tags:
+        - hello
+      responses:
+        '200':
+          description: Hello World
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hello"
 components:
   schemas:
     Pony:
@@ -82,3 +95,9 @@ components:
             cornSize:
               type: "integer"
               default: 10
+    Hello:
+      required:
+        - text
+      properties:
+        text:
+          type: string
