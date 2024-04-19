@@ -5,6 +5,7 @@ import com.malik.api.PonyApi;
 
 import com.malik.model.Hello;
 import com.malik.model.Pony;
+import com.malik.ponyapp.service.HelloService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,9 @@ public class PonyController implements PonyApi {
 
     @Override
     public ResponseEntity<Hello> hello() {
-        return new ResponseEntity<>(new Hello().text("Hello World!"), HttpStatus.OK);
+        HelloService hello = new HelloService();
+        //return new ResponseEntity<>(new Hello().text("Hello World!"), HttpStatus.OK);
+        return new ResponseEntity<>(hello.getGreeting(), HttpStatus.OK);
     }
 
     @Override
